@@ -1,5 +1,5 @@
 # load-balance-nginx-Balancing
-Load Balancing com Nginx, Docker e Docker Compose
+.NET Core: Load Balancing com Nginx, Docker e Docker Compose
 
 
 
