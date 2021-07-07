@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  proxy:
+    image: apicontagem-nginx
+    build:
+      context: .
+    ports:
+      - "20000:80"
+    depends_on:
+      - apicontagem01
+      - apicontagem02
+      - apicontagem03
+    networks:
+      - apicontagem-network
+  
+  apicontagem01:
+    image: renatogroffe/apicontagem-sdk-2-2
+    ports:
+      - "20001:80"
+    networks:
+      - apicontagem-network
+  
+  apicontagem02:
+    image: renatogroffe/apicontagem-sdk-2-2
+    ports:
+      - "20002:80"
+    networks:
+      - apicontagem-network
+  
+  apicontagem03:
+    image: renatogroffe/apicontagem-sdk-2-2
+    ports:
+      - "20003:80"
+    networks:
+      - apicontagem-network
+
+networks: 
+    apicontagem-network:
+      driver: bridge
